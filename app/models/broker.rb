@@ -1,0 +1,3 @@
+class Broker < ApplicationRecord
+
+end
