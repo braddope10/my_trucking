@@ -3,7 +3,7 @@ class CreateTrucks < ActiveRecord::Migration[6.0]
     create_table :trucks do |t|
       t.string :make
       t.stirng :model
-      t.string :year
+      t.integer :year
       t.string :color
 
       t.timestamps
