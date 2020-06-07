@@ -1,0 +1,3 @@
+class DatesController < ApplicationController
+
+end
