@@ -13,6 +13,9 @@ class CreateJobs < ActiveRecord::Migration[6.0]
       t.integer :hourly_rate
       t.integer :po_number
 
+      t.integer :user_id
+      t.integer :broker_id
+
       t.timestamps
     end
   end
