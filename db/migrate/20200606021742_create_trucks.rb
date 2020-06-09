@@ -5,6 +5,7 @@ class CreateTrucks < ActiveRecord::Migration[6.0]
       t.string :model
       t.integer :year
       t.string :color
+      t.string :nickname
 
       t.integer :user_id
       t.integer :date_id

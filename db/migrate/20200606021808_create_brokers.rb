@@ -4,7 +4,7 @@ class CreateBrokers < ActiveRecord::Migration[6.0]
       t.string :name
 
       t.integer :user_id
-      t.inetger :date_id
+      t.integer :date_id
 
       t.timestamps
     end
