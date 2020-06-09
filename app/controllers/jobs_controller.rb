@@ -66,7 +66,10 @@ class JobsController < ApplicationController
             :contact_name,
             :contact_number,
             :hourly_rate,
-            :po_number
+            :po_number, 
+            date_attributes: [:time],
+            broker_attributes: [:name]
+            truck_attributes: [:make, :model, :year, :color]
         )
     end
 
