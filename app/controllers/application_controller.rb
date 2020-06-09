@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     helper_method :create_session
 
     def require_login
-
+        
     end
 
     def logged_in?
