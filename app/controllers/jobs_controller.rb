@@ -25,11 +25,12 @@ class JobsController < ApplicationController
 
     def show
         @job = Job.find_by(id: params[:id])
-        @broker = @job.
+        # I want to be able to show driver, date, and broker as well
     end
 
     def edit
-
+        @job = Job.find_by(id: params[:id])
+        # I want to be able to edit driver, date, and broker
     end
 
     def update
