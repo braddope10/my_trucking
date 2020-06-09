@@ -4,12 +4,10 @@ class UsersController < ApplicationController
         @user = User.new
     end
 
-    def index
-
-    end
+    # No index method because I don't want to show another users private information
 
     def create
-
+        
     end
 
     def show
