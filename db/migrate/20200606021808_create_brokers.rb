@@ -3,6 +3,9 @@ class CreateBrokers < ActiveRecord::Migration[6.0]
     create_table :brokers do |t|
       t.string :name
 
+      t.integer :user_id
+      t.inetger :date_id
+
       t.timestamps
     end
   end

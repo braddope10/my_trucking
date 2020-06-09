@@ -1,7 +1,9 @@
 class Broker < ApplicationRecord
 
     has_many :jobs
-    has_many :users, :through => :jobs
-    has_many :dates
-    
+    has_many :trucks, :through => :jobs
+
+    belongs_to :users
+    belongs_to :dates
+
 end

@@ -1,8 +1,9 @@
 class Truck < ApplicationRecord
 
-    belongs_to :uses
+    has_many :jobs
+    has_many :brokers, :through => :jobs
 
-    has_many :dates
-    has_many :jobs, :through => :dates
+    belongs_to :users
+    belongs_to :dates
 
 end

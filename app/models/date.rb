@@ -1,8 +1,9 @@
 class Date < ApplicationRecord
 
-    belongs_to :users
-    belongs_to :trucks
-    belongs_to :brokers
-
     has_many :jobs
+    has_many :brokers
+    has_many :trucks
+    
+    belongs_to :users
+
 end

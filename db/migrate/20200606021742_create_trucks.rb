@@ -7,6 +7,7 @@ class CreateTrucks < ActiveRecord::Migration[6.0]
       t.string :color
 
       t.integer :user_id
+      t.integer :date_id
 
       t.timestamps
     end
