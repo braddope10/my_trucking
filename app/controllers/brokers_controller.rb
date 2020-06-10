@@ -4,4 +4,6 @@ class BrokersController < ApplicationController
         @brokers = Broker.filter_duplicates
     end
 
+    
+
 end
