@@ -1,0 +1,22 @@
+<%= simple_form_for @user do |f| %>
+    
+    <%= f.error_notification %>
+    <div class="form-group text-primary h5">
+        <%= f.input :username %>
+    </div>
+    <br/>
+    <div class="form-group text-primary h5">
+        <%= f.input :email %>
+    </div>
+    <br/>
+    <div class="form-group text-primary h5">
+        <%= f.input :password %>
+    </div>
+    <br/>
+    <div class="form-group text-primary h5">
+        <%= f.button :submit, class: "btn-primary" %>
+        <br/>
+        <br/>
+        <%= f.button :button, "Cancel", type: "reset", class: "btn-danger" %>
+    </div>
+<% end %>

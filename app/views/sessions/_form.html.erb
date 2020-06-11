@@ -1,0 +1,15 @@
+<%= simple_form_for :user do |f| %>
+    
+    <%= f.error_notification %>
+    <div class="form-group text-primary h5">
+        <%= f.input :username %>
+    </div>
+    <br/>
+    <div class="form-group text-primary h5">
+        <%= f.input :password %>
+    </div>
+    <br/>
+    <div class="form-group text-primary h5">
+        <%= f.button :submit, "Login", class: "btn-primary" %>
+    </div>
+<% end %>

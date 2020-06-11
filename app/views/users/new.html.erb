@@ -38,28 +38,9 @@ body {font-family: "Lato", sans-serif}
     <h1 class="w3-wide">MY_TRUCKING</h1>
     <p class="w3-opacity"><i>Signup!</i></p>
     <p class="w3-justify">
-        <%= simple_form_for @user do |f| %>
-    
-        <%= f.error_notification %>
-        <div class="form-group text-primary h5">
-            <%= f.input :name %>
-        </div>
-        <br/>
-        <div class="form-group text-primary h5">
-            <%= f.input :email %>
-        </div>
-        <br/>
-        <div class="form-group text-primary h5">
-            <%= f.input :password %>
-        </div>
-        <br/>
-        <div class="form-group text-primary h5">
-            <%= f.button :submit, class: "btn-primary" %>
-            <br/>
-            <br/>
-            <%= f.button :button, "Cancel", type: "reset", class: "btn-danger" %>
-        </div>
-        <% end %>
+
+        <%= render 'form' %>
+        
     </p>
   </div>
   
