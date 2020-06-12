@@ -12,17 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2020_06_06_021824) do
 
-  create_table "brokers", force: :cascade do |t|
-    t.string "name"
+  create_table "books", force: :cascade do |t|
+    t.string "monthdayyear"
     t.integer "user_id"
-    t.integer "date_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "dates", force: :cascade do |t|
-    t.string "time"
+  create_table "brokers", force: :cascade do |t|
+    t.string "name"
     t.integer "user_id"
+    t.integer "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,25 +36,23 @@ ActiveRecord::Schema.define(version: 2020_06_06_021824) do
     t.string "pickup"
     t.string "driver"
     t.string "contact_name"
-    t.integer "contact_number"
+    t.string "contact_number"
     t.integer "hourly_rate"
     t.integer "po_number"
     t.integer "user_id"
     t.integer "broker_id"
     t.integer "truck_id"
-    t.integer "date_id"
+    t.integer "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "trucks", force: :cascade do |t|
     t.string "make"
-    t.string "model"
     t.integer "year"
     t.string "color"
-    t.string "nickname"
     t.integer "user_id"
-    t.integer "date_id"
+    t.integer "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

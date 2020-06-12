@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :trucks, only: [:index]
   resources :brokers, only: [:index]
 
-  resources :dates, only: [:index] do
+  resources :books, only: [:index] do
     resources :jobs, only: [:show]
   end
 

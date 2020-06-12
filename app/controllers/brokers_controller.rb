@@ -1,7 +1,7 @@
 class BrokersController < ApplicationController
 
     def index
-        @brokers = Broker.filter_duplicates
+        @brokers = Broker.all.uniq
     end
 
     

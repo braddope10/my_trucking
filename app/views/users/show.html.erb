@@ -16,16 +16,14 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    
-    <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
 
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-small" <%= link_to "SUMMARY", user_path(session[:user_id]) %> </a>
+    <a class="w3-bar-item w3-button w3-padding-large" <%= link_to "HOME", user_path(session[:user_id]) %> </a>
 
     <a class="w3-bar-item w3-button w3-padding-large" <%= link_to "CREATE JOB", new_job_path %> </a>
 
     <a class="w3-bar-item w3-button w3-padding-large" <%= link_to "MOST RECENT", job_path %> </a>
 
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-small" <%= link_to "DATES", dates_path %> </a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-small" <%= link_to "DATES", books_path %> </a>
 
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-small" <%= link_to "TRUCKS", trucks_path %> </a>
 
@@ -39,11 +37,10 @@ body {font-family: "Lato", sans-serif}
 
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">DATES</a>
-  <a href="#tour" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">TRUCKS</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BROKERS</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SUMMARY</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LOGOUT</a>
+  <a class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()" <%= link_to "DATES", books_path %> </a>
+  <a class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()" <%= link_to "TRUCKS", trucks_path %> </a>
+  <a class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()" <%= link_to "BROKERS", brokers_path %> </a>
+  <a class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()" <%= link_to "LOGOUT", logout_path, method: :delete %> </a>
 </div>
 
 <!-- Page content -->
@@ -53,8 +50,8 @@ body {font-family: "Lato", sans-serif}
   <!-- The MY_TRUCKING Section -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="my_trucking">
     <h1 class="w3-wide">MY_TRUCKING</h1>
-    <p class="w3-opacity"><i>Welcome!</i></p>
-    <p class="w3-justify">This is an application that can be used as a tool by truckers around the nation to create a detailed record of their varying day-to-day shifts.</p>
+    <p class="w3-opacity"><i>Summary!</i></p>
+    <p class="w3-justify">Total Jobs, trucks, and brokers</p>
   </div>
   
 <!-- End Page Content -->

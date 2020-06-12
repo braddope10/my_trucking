@@ -8,9 +8,10 @@ class JobsController < ApplicationController
 
     def new
         @job = Job.new
+        # binding.pry
         @job.build_truck
         @job.build_broker
-        @job.build_date
+        @job.build_book
     end
 
     def create
@@ -67,8 +68,8 @@ class JobsController < ApplicationController
             :contact_number,
             :hourly_rate,
             :po_number, 
-            date_attributes: [:time],
-            broker_attributes: [:name]
+            book_attributes: [:time],
+            broker_attributes: [:name],
             truck_attributes: [:make, :model, :year, :color]
         )
     end
