@@ -14,8 +14,8 @@ class CreateJobs < ActiveRecord::Migration[6.0]
       t.integer :po_number
 
       t.integer :user_id
-      t.integer :broker_id
       t.integer :truck_id
+      t.integer :broker_id
       t.integer :book_id
 
       t.timestamps

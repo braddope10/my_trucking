@@ -14,15 +14,12 @@ ActiveRecord::Schema.define(version: 2020_06_06_021824) do
 
   create_table "books", force: :cascade do |t|
     t.string "monthdayyear"
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "brokers", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id"
-    t.integer "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,8 +37,8 @@ ActiveRecord::Schema.define(version: 2020_06_06_021824) do
     t.integer "hourly_rate"
     t.integer "po_number"
     t.integer "user_id"
-    t.integer "broker_id"
     t.integer "truck_id"
+    t.integer "broker_id"
     t.integer "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -51,8 +48,6 @@ ActiveRecord::Schema.define(version: 2020_06_06_021824) do
     t.string "make"
     t.integer "year"
     t.string "color"
-    t.integer "user_id"
-    t.integer "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

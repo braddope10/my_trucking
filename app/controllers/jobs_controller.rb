@@ -15,9 +15,12 @@ class JobsController < ApplicationController
     end
 
     def create
+        # @job = Job.new(job_params)
         @job = Job.new(job_params)
+        # binding.pry
         @job.user_id = session[:user_id]
         if @job.save
+            # binding.pry
             redirect_to job_path(@job)
         else
             render :new
@@ -26,6 +29,7 @@ class JobsController < ApplicationController
 
     def show
         @job = Job.find_by(id: params[:id])
+        # binding.pry
         # I want to be able to show driver, date, and broker as well
     end
 
@@ -70,8 +74,7 @@ class JobsController < ApplicationController
             :po_number, 
             book_attributes: [:monthdayyear],
             broker_attributes: [:name],
-            truck_attributes: [:make, :year, :color]
-        )
+            truck_attributes: [:make, :year, :color])
     end
 
 end

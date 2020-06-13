@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
     helper_method :logged_in?
     helper_method :create_session
+    helper_method :check_current_user
 
     private
 
@@ -15,6 +16,10 @@ class ApplicationController < ActionController::Base
 
     def create_session
         session[:user_id] = @user.id
+    end
+
+    def check_current_user
+        session[:user_id]
     end
 
 end

@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   resources :users
   resources :jobs
 
-  resources :trucks, only: [:index]
-  resources :brokers, only: [:index]
+  resources :trucks
+  resources :brokers
 
-  resources :books, only: [:index] do
+  resources :books do
     resources :jobs, only: [:show]
   end
 
