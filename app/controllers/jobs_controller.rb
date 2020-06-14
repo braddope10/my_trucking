@@ -2,8 +2,12 @@ class JobsController < ApplicationController
 
     before_action :require_login
 
-    def index
-        @jobs = Job.all 
+    def index #??????
+        if @book = Book.find_by(monthdayyear: params[:monthdayyear])
+            @jobs = @book.jobs
+        else
+            @jobs = Job.all
+        end 
     end
 
     def new
@@ -27,8 +31,14 @@ class JobsController < ApplicationController
         end
     end
 
-    def show
-        @job = Job.find_by(id: params[:id])
+    def show #Shows most recently created job along with all its details
+        # @job = Job.find_by(id: params[:id])
+        # @book = Book.find_by(id: params[:id])
+        @jobs = Job.all
+        @job = Job.last
+        # @book = Book.last
+        # @broker = Broker.last
+        # @truck = Truck.last
         # binding.pry
         # I want to be able to show driver, date, and broker as well
     end
@@ -41,7 +51,7 @@ class JobsController < ApplicationController
     def update
         @job = Job.find_by(id: params[:id])
         if @job.update(job_params)
-            redirect_to jobs_path
+            redirect_to job_path
         else
             render :edit
         end
@@ -49,12 +59,20 @@ class JobsController < ApplicationController
 
     def destroy
         @job = Job.find_by(id: params[:id])
-        if @job && @job.user == current_user
-            @job.destroy
-            redirect_to jobs_path
+        if check_current_user != @job.user_id
+            redirect_to user_path(session[:user_id])
         else
-            redirect_to jobs_path
+            @job.destroy
+            redirect_to user_path
         end
+        # @job = Job.find_by(id: params[:id])
+        # if @job && @job.user == current_user
+        #     @job.destroy
+        #     redirect_to jobs_path
+        # else
+        #     redirect_to jobs_path
+        # end
+
     end
 
     private
@@ -72,9 +90,9 @@ class JobsController < ApplicationController
             :contact_number,
             :hourly_rate,
             :po_number, 
-            book_attributes: [:monthdayyear],
-            broker_attributes: [:name],
-            truck_attributes: [:make, :year, :color])
+            book_attributes: [:monthdayyear, :_destroy],
+            broker_attributes: [:name, :_destroy],
+            truck_attributes: [:make, :year, :color, :_destroy])
     end
 
 end

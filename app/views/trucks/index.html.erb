@@ -21,7 +21,7 @@ body {font-family: "Lato", sans-serif}
 
     <a class="w3-bar-item w3-button w3-padding-large" <%= link_to "CREATE JOB", new_job_path %> </a>
 
-    <a class="w3-bar-item w3-button w3-padding-large" <%= link_to "MOST RECENT", job_path(session[:user_id]) %> </a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-small" <%= link_to "RECENTLY CREATED", job_path(session[:user_id]) %> </a>
 
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-small" <%= link_to "DATES", books_path %> </a>
 
@@ -37,6 +37,7 @@ body {font-family: "Lato", sans-serif}
 
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()" <%= link_to "RECENTLY CREATED", job_path(session[:user_id]) %> </a>
   <a class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()" <%= link_to "DATES", books_path %> </a>
   <a class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()" <%= link_to "TRUCKS", trucks_path %> </a>
   <a class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()" <%= link_to "BROKERS", brokers_path %> </a>
@@ -53,7 +54,11 @@ body {font-family: "Lato", sans-serif}
     <p class="w3-opacity"><i>This is a list of all the trucks you own!</i></p>
 
         <% @trucks.each do |p| %>
-            <p class="w3-justify w3-center">make:  <%= p.make.upcase %>, color:  <%= p.color.upcase %>, year:  <%= p.year %> </p>
+            <p class="w3-justify w3-center">
+              make:<%= p.make.upcase %> </br>
+              color:  <%= p.color.upcase %> </br>
+              year:  <%= p.year %> 
+            </p>
         <% end %>
 
   </div>

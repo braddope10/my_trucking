@@ -26,6 +26,6 @@ class Job < ApplicationRecord
     #Testing
 
 
-    accepts_nested_attributes_for :broker, :book, :truck
+    accepts_nested_attributes_for :broker, :book, :truck, :allow_destroy => true, :reject_if => :all_blank
 
 end

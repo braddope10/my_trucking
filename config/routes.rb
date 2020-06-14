@@ -12,9 +12,10 @@ Rails.application.routes.draw do
 
   resources :trucks
   resources :brokers
+  resources :books
 
   resources :books do
-    resources :jobs, only: [:show]
+    resources :jobs, only: [:index]
   end
 
 end

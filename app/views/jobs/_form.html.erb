@@ -1,0 +1,80 @@
+
+<% if @jobs.empty?
+  <p class="w3-justify w3-center">Create a job!</p>
+
+<% else %>
+
+  <p class="w3-justify"> 
+    date: <%= @job.book.monthdayyear %> 
+  </p>
+  <p class="w3-justify"> 
+    make: <%= @job.truck.make %> </br> 
+    color: <%= @job.truck.color %> </br>
+    year: <%= @job.truck.year %> 
+  </p>
+  <p class="w3-justify">
+    broker: <%= @job.broker.name %>
+  </p>
+  <p class="w3-justify">
+    p.o #: <%= @job.po_number %> </br>
+    start time: <%= @job.start_time %> </br>
+    end time: <%= @job.end_time %> </br>
+    material: <%= @job.material %> </br>
+    weight: <%= @job.weight %> </br>
+    pick up location: <%= @job.pickup %> </br>
+    drop off location: <%= @job.dropoff %> </br>
+    driver: <%= @job.driver %> </br>
+    contact name: <%= @job.contact_name %> </br>
+    contact number: <%= @job.contact_number %> </br>
+    hourly rate: <%= @job.hourly_rate %> </br> </br>
+
+    <%= link_to "edit", edit_job_path(@job.id) %> </br>
+    <%= link_to "delete", job_path(@job), :confirm => "Are you sure you want to do that?", :method => :delete %>
+  </p>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="w3-justify"> 
+      date: <%= @job.book.monthdayyear %> 
+    </p>
+    <p class="w3-justify"> 
+      make: <%= @job.truck.make %> </br> 
+      color: <%= @job.truck.color %> </br>
+      year: <%= @job.truck.year %> 
+    </p>
+    <p class="w3-justify">
+      broker: <%= @job.broker.name %>
+    </p>
+    <p class="w3-justify">
+      p.o #: <%= @job.po_number %> </br>
+      start time: <%= @job.start_time %> </br>
+      end time: <%= @job.end_time %> </br>
+      material: <%= @job.material %> </br>
+      weight: <%= @job.weight %> </br>
+      pick up location: <%= @job.pickup %> </br>
+      drop off location: <%= @job.dropoff %> </br>
+      driver: <%= @job.driver %> </br>
+      contact name: <%= @job.contact_name %> </br>
+      contact number: <%= @job.contact_number %> </br>
+      hourly rate: <%= @job.hourly_rate %> </br> </br>
+    
+      <%= link_to "edit", edit_job_path(@job.id) %> </br>
+      <%= link_to "delete", job_path(@job), :confirm => "Are you sure you want to do that?", :method => :delete %>
+    </p>
+
+
