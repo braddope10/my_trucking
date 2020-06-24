@@ -3,14 +3,12 @@ class JobsController < ApplicationController
     before_action :require_login
     before_action :find_job, only: [:edit, :update, :destroy]
 
-    def index #??????
-    
+    def index
         @job = Job.find_by(id: params[:book_id])
     end
 
     def new
         @job = Job.new
-        # binding.pry
         @job.build_truck
         @job.build_broker
         @job.build_book

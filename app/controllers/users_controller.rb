@@ -20,6 +20,10 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find_by(id: params[:id])
+        @books = Book.all.count
+        @jobs = Job.all.count
+        @brokers = Broker.all.count
+        @trucks = Truck.all.count
         # binding.pry
     end
 

@@ -52,7 +52,14 @@ body {font-family: "Lato", sans-serif}
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="my_trucking">
     <h1 class="w3-wide">MY_TRUCKING</h1>
     <p class="w3-opacity"><i>Summary!</i></p>
-    <p class="w3-justify">Total Jobs, trucks, and brokers</p>
+    <p class="w3-justify"> 
+      <p> username: <%= @user.username.upcase %> </p>
+      <p> email: <%= @user.email %> </p>
+      <p> total dates: <%= @books %> </p>
+      <p> total trucks: <%= @trucks %> </p>
+      <p> total brokers: <%= @brokers %> </p>
+      <p> total jobs: <%= @jobs %> </p>
+    </p>
   </div>
   
 <!-- End Page Content -->

@@ -57,18 +57,18 @@ body {font-family: "Lato", sans-serif}
 
     <% else %>
 
-      <p class="w3-justify"> 
+      <p class="w3-justify w3-center"> 
         date: <%= @job.book.monthdayyear %> 
       </p>
-      <p class="w3-justify"> 
+      <p class="w3-justify w3-center"> 
         make: <%= @job.truck.make %> </br> 
         color: <%= @job.truck.color %> </br>
         year: <%= @job.truck.year %> 
       </p>
-      <p class="w3-justify">
+      <p class="w3-justify w3-center">
         broker: <%= @job.broker.name %>
       </p>
-      <p class="w3-justify">
+      <p class="w3-justify w3-center">
         p.o #: <%= @job.po_number %> </br>
         start time: <%= @job.start_time %> </br>
         end time: <%= @job.end_time %> </br>
