@@ -15,13 +15,9 @@ class JobsController < ApplicationController
     end
 
     def create
-        # @job = Job.new(job_params)
         @job = Job.new(job_params)
-        # binding.pry
         @job.user_id = session[:user_id]
-        # binding.pry
         if @job.save
-            # binding.pry
             redirect_to job_path(@job)
         else
             render :new
@@ -29,24 +25,15 @@ class JobsController < ApplicationController
     end
 
     def show #Shows most recently created job along with all its details
-        # @job = Job.find_by(id: params[:id])
-        # @book = Book.find_by(id: params[:id])
         @jobs = Job.all
         @job = Job.last
-        # @book = Book.last
-        # @broker = Broker.last
-        # @truck = Truck.last
-        # binding.pry
-        # I want to be able to show driver, date, and broker as well
     end
 
     def edit
-        
         # I want to be able to edit driver, date, and broker
     end
 
     def update
-        
         if @job.update(job_params)
             redirect_to job_path
         else
@@ -55,21 +42,12 @@ class JobsController < ApplicationController
     end
 
     def destroy
-        
         if check_current_user != @job.user_id
             redirect_to user_path(session[:user_id])
         else
             @job.destroy
             redirect_to user_path
         end
-        # @job = Job.find_by(id: params[:id])
-        # if @job && @job.user == current_user
-        #     @job.destroy
-        #     redirect_to jobs_path
-        # else
-        #     redirect_to jobs_path
-        # end
-
     end
 
     private

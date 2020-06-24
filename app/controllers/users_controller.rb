@@ -24,7 +24,6 @@ class UsersController < ApplicationController
         @jobs = Job.all.count
         @brokers = Broker.all.count
         @trucks = Truck.all.count
-        # binding.pry
     end
 
     private
