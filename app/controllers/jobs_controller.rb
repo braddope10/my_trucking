@@ -1,13 +1,11 @@
 class JobsController < ApplicationController
 
     before_action :require_login
+    before_action :find_job, only: [:edit, :update, :destroy]
 
     def index #??????
-        if @book = Book.find_by(monthdayyear: params[:monthdayyear])
-            @jobs = @book.jobs
-        else
-            @jobs = Job.all
-        end 
+    
+        @job = Job.find_by(id: params[:book_id])
     end
 
     def new
@@ -23,6 +21,7 @@ class JobsController < ApplicationController
         @job = Job.new(job_params)
         # binding.pry
         @job.user_id = session[:user_id]
+        # binding.pry
         if @job.save
             # binding.pry
             redirect_to job_path(@job)
@@ -44,12 +43,12 @@ class JobsController < ApplicationController
     end
 
     def edit
-        @job = Job.find_by(id: params[:id])
+        
         # I want to be able to edit driver, date, and broker
     end
 
     def update
-        @job = Job.find_by(id: params[:id])
+        
         if @job.update(job_params)
             redirect_to job_path
         else
@@ -58,7 +57,7 @@ class JobsController < ApplicationController
     end
 
     def destroy
-        @job = Job.find_by(id: params[:id])
+        
         if check_current_user != @job.user_id
             redirect_to user_path(session[:user_id])
         else
@@ -76,6 +75,10 @@ class JobsController < ApplicationController
     end
 
     private
+
+    def find_job
+        @job = Job.find_by(id: params[:id])
+    end
 
     def job_params
         params.require(:job).permit(

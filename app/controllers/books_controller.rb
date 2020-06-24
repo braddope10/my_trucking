@@ -4,6 +4,7 @@ class BooksController < ApplicationController
         # @books = Book.filter_duplicates
         
         @books = Book.all
+        @jobs = Job.all
         # @books = @books.uniq{ |b| b.monthdayyear }
 
 
