@@ -26,7 +26,7 @@ body {font-family: "Lato", sans-serif}
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
   <a href="/signup" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SIGNUP</a>
-  <a href="/loin" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LOGIN</a>
+  <a href="/login" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LOGIN</a>
 </div>
 
 <!-- Page content -->
@@ -36,10 +36,14 @@ body {font-family: "Lato", sans-serif}
 <!-- The MY_TRUCKING Section -->
 <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="my_trucking">
   <h1 class="w3-wide">MY_TRUCKING</h1>
-  <p class="w3-opacity"><i>Signup!</i></p>
+  <p class="w3-opacity"><i>Login!</i></p>
   <p class="w3-justify">
 
-      <%= render 'form' %>
+    <%= render 'form' %>
+
+    </br>
+
+    <%= link_to "Log in with Facebook!", '/auth/facebook' %>
       
   </p>
 </div>

@@ -11,6 +11,13 @@ class User < ApplicationRecord
 
     has_secure_password
 
+    def self.create_facebook_auth(auth)
+        self.find_or_create_by(email:auth['info']['email']) do |u|
+            u.username = auth['info']['name']
+            u.password = auth['uid']
+        end
+    end
+
     
 
 end
