@@ -8,6 +8,8 @@ class Broker < ApplicationRecord
 
     accepts_nested_attributes_for :jobs
 
+    scope :filter_duplicates, -> { group(:name).having("count(*) >= 1")}
+
     #Tesing
     # belongs_to :job
 

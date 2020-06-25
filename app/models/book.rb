@@ -7,6 +7,4 @@ class Book < ApplicationRecord
 
     accepts_nested_attributes_for :jobs
 
-    # scope :filter_duplicates, -> { group(:monthdayyear).having("count(*) >= 1")}
-
 end

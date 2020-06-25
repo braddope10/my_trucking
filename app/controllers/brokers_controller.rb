@@ -2,7 +2,9 @@ class BrokersController < ApplicationController
 
     def index
         @brokers = Broker.all
-        @brokers = @brokers.uniq{ |w| w.name }
+
+        @brokers = @brokers.filter_duplicates
+        # @brokers = @brokers.uniq{ |w| w.name }
     end
 
 end

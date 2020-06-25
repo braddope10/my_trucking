@@ -18,14 +18,6 @@ class Job < ApplicationRecord
     validates :po_number, presence: true, uniqueness: true
 
 
-
-    #Testing
-    # has_one :truck
-    # has_one :book
-    # has_one :broker
-    #Testing
-
-
     accepts_nested_attributes_for :broker, :book, :truck, :allow_destroy => true, :reject_if => :all_blank
 
 end

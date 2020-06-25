@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     def destroy
         session.delete(:user_id)
         flash[:notice] = "Logged Out!"
-        redirect_to '/', noticed: "Logged Out!"
+        redirect_to '/', notice: "Logged Out!"
     end
 
     def fb_create
