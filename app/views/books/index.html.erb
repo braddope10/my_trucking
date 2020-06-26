@@ -28,7 +28,7 @@ body {font-family: "Lato", sans-serif}
     <% @jobs.each do |j| %>
       <p class="w3-justify w3-center">
         <%= j.id %>. <%= j.book.monthdayyear %> </br>
-        p.o #: <%= link_to j.po_number, book_jobs_path(j) %>
+        p.o #: <%= link_to j.po_number, book_job_path(@books, j) %>
       </p>
     <% end %>
   

@@ -22,24 +22,51 @@ body {font-family: "Lato", sans-serif}
   <!-- The MY_TRUCKING Section -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="my_trucking">
     <h1 class="w3-wide">MY_TRUCKING</h1>
+    <p class="w3-opacity"><i>All Jobs!</i></p>
 
-    <p class="w3-justify w3-center"> 
-        <p> p.o number: <%= @job.po_number %> </p>
-        <p> start time: <%= @job.start_time %> </p> 
-        <p> end time: <%= @job.end_time %> </p>
-        <p> material: <%= @job.material %> </p>
-        <p> weight: <%= @job.weight %> </p>
-        <p> pickup: <%= @job.pickup %> </p>
-        <p> dropoff: <%= @job.dropoff %> </p>
-        <p> driver: <%= @job.driver %> </p>
-        <p> contact name: <%= @job.contact_name %> </p>
-        <p> contact number: <%= @job.contact_number %> </p>
-    </p>
+    <% if @jobs.empty? %>
+      <p class="w3-justify w3-center"> <%= link_to "Create a job!", new_job_path %></p>
 
+    <% else %>
+
+      <% @jobs.each do |j| %>
+
+        <p class="w3-justify w3-center"> 
+          date: <%= j.book.monthdayyear %> 
+        </p>
+        <p class="w3-justify w3-center"> 
+          make: <%= j.truck.make %> </br> 
+          color: <%= j.truck.color %> </br>
+          year: <%= j.truck.year %> 
+        </p>
+        <p class="w3-justify w3-center">
+          broker: <%= j.broker.name %>
+        </p>
+        <p class="w3-justify w3-center">
+          p.o #: <%= j.po_number %> </br>
+          start time: <%= j.start_time %> </br>
+          end time: <%= j.end_time %> </br>
+          material: <%= j.material %> </br>
+          weight: <%= j.weight %> </br>
+          pick up location: <%= j.pickup %> </br>
+          drop off location: <%= j.dropoff %> </br>
+          driver: <%= j.driver %> </br>
+          contact name: <%= j.contact_name %> </br>
+
+          contact number: <%= j.contact_number %> </br>
+          hourly rate: <%= j.hourly_rate %> </br> 
+
+          <%= link_to "edit", edit_job_path(j.id) %> </br>
+          <%= link_to "delete", job_path(j), :confirm => "Are you sure you want to do that?", :method => :delete %>
+        </p></br>
+      <% end %>
+    <% end %>
+    
   </div>
   
-<!-- End Page Content -->
+
 </div>
+
 
 <!-- Footer -->
   <%= render 'layouts/footer' %>

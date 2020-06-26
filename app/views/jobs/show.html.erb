@@ -22,48 +22,30 @@ body {font-family: "Lato", sans-serif}
   <!-- The MY_TRUCKING Section -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="my_trucking">
     <h1 class="w3-wide">MY_TRUCKING</h1>
-    <p class="w3-opacity"><i>Most Recent Job!</i></p>
-    
-    <% if @jobs.empty? %>
-      <p class="w3-justify w3-center"> <%= link_to "Create a job!", new_job_path %></p>
+    <p class="w3-opacity"><i>You did this job on <%= @job.book.monthdayyear %>!</i></p>
 
-    <% else %>
+    <p class="w3-justify w3-center"> 
+        <p> p.o number: <%= @job.po_number %> </p>
+        <p> start time: <%= @job.start_time %> </p> 
+        <p> end time: <%= @job.end_time %> </p>
+        <p> material: <%= @job.material %> </p>
+        <p> weight: <%= @job.weight %> </p>
+        <p> pickup: <%= @job.pickup %> </p>
+        <p> dropoff: <%= @job.dropoff %> </p>
+        <p> driver: <%= @job.driver %> </p>
+        <p> contact name: <%= @job.contact_name %> </p>
+        <p> contact number: <%= @job.contact_number %> </p>
 
-      <p class="w3-justify w3-center"> 
-        date: <%= @job.book.monthdayyear %> 
-      </p>
-      <p class="w3-justify w3-center"> 
-        make: <%= @job.truck.make %> </br> 
-        color: <%= @job.truck.color %> </br>
-        year: <%= @job.truck.year %> 
-      </p>
-      <p class="w3-justify w3-center">
-        broker: <%= @job.broker.name %>
-      </p>
-      <p class="w3-justify w3-center">
-        p.o #: <%= @job.po_number %> </br>
-        start time: <%= @job.start_time %> </br>
-        end time: <%= @job.end_time %> </br>
-        material: <%= @job.material %> </br>
-        weight: <%= @job.weight %> </br>
-        pick up location: <%= @job.pickup %> </br>
-        drop off location: <%= @job.dropoff %> </br>
-        driver: <%= @job.driver %> </br>
-        contact name: <%= @job.contact_name %> </br>
+        <p>
+          <%= link_to "edit", edit_book_job_path(@book, @job) %> </br>
+          <%= link_to "create a new job", new_book_job_path %>
+        </p>
+    </p>
 
-        contact number: <%= @job.contact_number %> </br>
-        hourly rate: <%= @job.hourly_rate %> </br> </br>
-
-        <%= link_to "edit", edit_job_path(@job.id) %> </br>
-        <%= link_to "delete", job_path(@job), :confirm => "Are you sure you want to do that?", :method => :delete %>
-      </p>
-    <% end %>
-    
   </div>
   
-
+<!-- End Page Content -->
 </div>
-
 
 <!-- Footer -->
   <%= render 'layouts/footer' %>

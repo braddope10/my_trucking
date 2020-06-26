@@ -11,12 +11,12 @@ Rails.application.routes.draw do
   resources :users
   resources :jobs
 
-  resources :trucks
-  resources :brokers
-  resources :books
+  resources :trucks, only: [:index]
+  resources :brokers, only: [:index]
+  resources :books, only: [:index]
 
-  resources :books do
-    resources :jobs, only: [:index]
+  resources :books, only: [:index] do #parent
+    resources :jobs, only: [:show, :new, :edit] 
   end
 
 end
